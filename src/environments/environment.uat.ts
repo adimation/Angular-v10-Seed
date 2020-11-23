@@ -1,6 +1,6 @@
 export const environment = {
     production: true,
-    envName: 'prod',
+    envName: 'uat',
     apiEndpoint: '',
     baseUrl: '',
     loggerEnabled: false,

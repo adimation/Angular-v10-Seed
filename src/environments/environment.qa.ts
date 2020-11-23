@@ -1,8 +1,8 @@
 export const environment = {
-    production: true,
-    envName: 'prod',
+    production: false,
+    envName: 'qa',
     apiEndpoint: '',
     baseUrl: '',
-    loggerEnabled: false,
+    loggerEnabled: true,
     loggerToServerEnabled: true
 };
