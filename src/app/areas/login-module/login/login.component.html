@@ -1,0 +1,44 @@
+<nz-layout class="login-layout">
+    <app-header></app-header>
+    
+    <nz-layout class="login-layout">
+        <nz-content class="login-content">
+            <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+                <nz-form-item>
+                    <h1>Sign In</h1>
+                </nz-form-item> 
+                <nz-form-control class="has-error">
+                    <span class="error" *ngIf="formSubmitError">{{formSubmitError}}</span>
+                </nz-form-control>
+                <nz-form-item>
+                    <nz-form-label nzRequired class="left">Email Address</nz-form-label>
+                    <nz-form-control>
+                        <nz-input-group>
+                            <input type="text" nz-input formControlName="userName" placeholder="Email Address" />
+                        </nz-input-group>
+                        <span *ngIf="validateForm.get('userName')?.dirty && validateForm.get('userName')?.errors">Please input your username.</span>
+                    </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                    <nz-form-label nzRequired>Password</nz-form-label>
+                    <nz-form-control>
+                        <nz-input-group>
+                            <input type="password" nz-input formControlName="password" placeholder="Password" />
+                        </nz-input-group>
+                        <span *ngIf="validateForm.get('password')?.dirty && validateForm.get('password')?.errors">Please input your Password.</span>
+                    </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                    <nz-form-control>
+                        <button nz-button class="login-form-button" [nzLoading]="isLoading" nzType="primary">Sign In</button>
+                    </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                    <a routerLink="/login/forgot-password">Forgot Password?</a>
+                </nz-form-item>
+            </form>
+        </nz-content>
+    </nz-layout>
+
+    <app-footer></app-footer>
+</nz-layout>

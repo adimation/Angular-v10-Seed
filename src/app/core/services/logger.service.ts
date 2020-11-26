@@ -24,6 +24,7 @@ export class LoggerService {
         protected http: HttpClient
     ) {
         this.currentMethod = '';
+        console.log('Logger Service Created');
     }
 
     public info(...msg: any[]): void {

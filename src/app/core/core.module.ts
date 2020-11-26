@@ -24,7 +24,7 @@ import { NzSpinModule } from 'ng-zorro-antd/spin';
 	imports: [
 		CommonModule,
 		NzNotificationModule,
-		NzSpinModule
+        NzSpinModule
 	],
 	exports: [
 		SpinnerComponent,
