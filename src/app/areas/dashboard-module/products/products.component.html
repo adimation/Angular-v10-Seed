@@ -3,10 +3,11 @@
         <nz-content class="product-content">
             <div nz-row>
                 <div nz-col [nzSpan]="4">
-                    <h2>Products</h2>
+                    <h2>{{ 'products.title' | translate }}</h2>
                 </div>
                 <div nz-col [nzSpan]="4" nzOffset="16">
-                    <button class="float-right" nz-button [nzType]="'primary'">Re-import products</button>
+                    <button class="float-right" (click)="notification()" nz-button [nzType]="'primary'">Re-import
+                        products</button>
                 </div>
             </div>
 

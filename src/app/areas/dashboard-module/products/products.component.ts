@@ -50,4 +50,9 @@ export class ProductsComponent extends BaseComponent implements OnInit {
     public submitForm(reset: boolean): void {
 
     }
+
+    public notification(): void {
+        this.applicationService.showSuccessNotification('Success', 'Notification shown successfully!');
+        this.applicationService.showSuccessToast('Toast shown successfully!');
+    }
 }

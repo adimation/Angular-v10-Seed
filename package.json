@@ -4,10 +4,15 @@
 	"scripts": {
 		"ng": "ng",
 		"start": "ng serve",
-		"build": "ng build",
+		"build": "ng build -c development",
+		"build:qa": "ng build -c qa",
+		"build:uat": "ng build -c uat",
+		"build:prod": "ng build -c production",
 		"test": "ng test",
 		"lint": "ng lint",
-		"e2e": "ng e2e"
+		"e2e": "ng e2e",
+		"i18n:init": "ngx-translate-extract -i ./src -o ./src/assets/i18n/template.json -k -r -f namespaced-json",
+		"i18n:extract": "ngx-translate-extract -i ./src -o ./src/assets/i18n/da.json -o ./src/assets/i18n/en.json -k -c --fi -f namespaced-json"
 	},
 	"private": true,
 	"dependencies": {
@@ -19,6 +24,8 @@
 		"@angular/platform-browser": "~10.2.0",
 		"@angular/platform-browser-dynamic": "~10.2.0",
 		"@angular/router": "~10.2.0",
+		"@ngx-translate/core": "^13.0.0",
+		"@ngx-translate/http-loader": "^6.0.0",
 		"@types/pako": "^1.0.1",
 		"ng-zorro-antd": "^10.1.2",
 		"pako": "^2.0.2",
@@ -30,9 +37,10 @@
 		"@angular-devkit/build-angular": "~0.1002.0",
 		"@angular/cli": "~10.2.0",
 		"@angular/compiler-cli": "~10.2.0",
-		"@types/node": "^12.11.1",
+		"@biesbjerg/ngx-translate-extract": "^7.0.3",
 		"@types/jasmine": "~3.5.0",
 		"@types/jasminewd2": "~2.0.3",
+		"@types/node": "^12.11.1",
 		"codelyzer": "^6.0.0",
 		"jasmine-core": "~3.6.0",
 		"jasmine-spec-reporter": "~5.0.0",

@@ -15,23 +15,25 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from './interceptor/jwt.interceptor';
 import { NzNotificationModule } from 'ng-zorro-antd/notification';
 import { NzSpinModule } from 'ng-zorro-antd/spin';
+import { NzMessageModule } from 'ng-zorro-antd/message';
 
 @NgModule({
-	declarations: [
-		SpinnerComponent,
+    declarations: [
+        SpinnerComponent,
         BaseComponent
-	],
-	imports: [
-		CommonModule,
-		NzNotificationModule,
-        NzSpinModule
-	],
-	exports: [
-		SpinnerComponent,
+    ],
+    imports: [
+        CommonModule,
+        NzNotificationModule,
+        NzSpinModule,
+        NzMessageModule
+    ],
+    exports: [
+        SpinnerComponent,
         BaseComponent
-	],
-	providers: [
-		{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    ],
+    providers: [
+        { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
         BaseService,
         LoggerService,
         SpinnerService,
@@ -41,7 +43,7 @@ import { NzSpinModule } from 'ng-zorro-antd/spin';
         AntiAuthGuard,
         // GlobalPermissionGuard,
         UserService
-	]
+    ]
 })
 export class CoreModule {
     constructor(@Optional() @SkipSelf() parentModule: CoreModule) {

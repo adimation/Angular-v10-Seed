@@ -1,0 +1,8 @@
+{
+	"dashboard": {
+		"title": "Hello, {{name}}"
+	},
+	"products": {
+		"title": "Products"
+	}
+}

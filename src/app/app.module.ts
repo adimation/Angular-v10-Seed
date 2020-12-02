@@ -6,20 +6,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IconsProviderModule } from './icons-provider.module';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
-import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NZ_I18N, en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { SharedModule } from './shared/shared.module';
-import { MyNgZorroAntdModule } from './ng-zorro-antd.module';
-import { NzIconModule } from 'ng-zorro-antd/icon';
-import { SpinnerComponent } from './core/spinner/spinner.component';
 import { ApplicationUserService } from './services/application-user.service';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 registerLocaleData(en);
+
+// AoT requires an exported function for factories
+export function httpTranslateLoader(http: HttpClient) {
+	return new TranslateHttpLoader(http);
+}
 
 @NgModule({
 	declarations: [
@@ -35,6 +38,13 @@ registerLocaleData(en);
 		BrowserAnimationsModule,
 		CoreModule,
 		SharedModule,
+		TranslateModule.forRoot({
+			loader: {
+				provide: TranslateLoader,
+				useFactory: httpTranslateLoader,
+				deps: [HttpClient]
+			}
+		})
 	],
 	providers: [
 		{ provide: NZ_I18N, useValue: en_US },

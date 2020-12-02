@@ -14,13 +14,13 @@ nz-content.am-content {
 }
 
 nz-sider.am-sider {
-    background-color: #FFFFFF;
-    box-shadow: inset -1px 0 0 0 #D9D9D9, 0 0px 0px 0 rgba(50, 64, 77, 0.2);
+    background-color: #ffffff;
+    box-shadow: inset -1px 0 0 0 #d9d9d9, 0 0px 0px 0 rgba(50, 64, 77, 0.2);
 }
 
 nz-header.am-header {
-    background-color: #FFFFFF;
-    box-shadow: inset 0 -1px 0 0 #D9D9D9, 0 0px 0px 0 rgba(50, 64, 77, 0.2);
+    background-color: #ffffff;
+    box-shadow: inset 0 -1px 0 0 #d9d9d9, 0 0px 0px 0 rgba(50, 64, 77, 0.2);
     position: relative;
 }
 
@@ -55,12 +55,13 @@ span.version {
 }
 
 .notification-bar,
+.language-select,
 .user-menu {
     float: right;
 }
 
 .user-menu a {
-    color: rgba(0, 0, 0, 0.65)
+    color: rgba(0, 0, 0, 0.65);
 }
 
 .notification-container {
@@ -72,4 +73,9 @@ span.version {
 .ant-menu-vertical-left .ant-menu-item::after,
 .ant-menu-vertical-right .ant-menu-item::after {
     border-right-color: #fcb827;
+}
+
+nz-select {
+    margin: 15px 8px 15px 0;
+    width: 120px;
 }

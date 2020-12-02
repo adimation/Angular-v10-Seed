@@ -5,6 +5,7 @@
         <app-notification></app-notification>
         <span class="version">{{version}}</span>
         -->
+
         <a nz-dropdown class="user-menu" [nzDropdownMenu]="menu">
             John Doe
             <i nz-icon nzType="down"></i>
@@ -15,6 +16,10 @@
             </ul>
         </nz-dropdown-menu>
 
+        <nz-select (ngModelChange)="languageChange($event)" [ngModel]="language" class="language-select">
+            <nz-option nzValue="en" nzLabel="English"></nz-option>
+            <nz-option nzValue="de" nzLabel="German"></nz-option>
+        </nz-select>
     </nz-header>
 
     <nz-layout class="am-layout">

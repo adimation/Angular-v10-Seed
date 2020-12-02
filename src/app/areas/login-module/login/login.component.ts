@@ -1,17 +1,19 @@
 import { Router } from '@angular/router';
 import { LoggerService } from '../../../core/services/logger.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BaseComponent } from '../../../core/abstraction/base-component';
 import { ApplicationService } from '../../../core/services/application.service';
 import { LocalStorageService } from '../../../core/services/local-storage.service';
+import { AutoUnsub } from 'src/app/decorators/auto-unsub.decorator';
 
 @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.scss']
 })
-export class LoginComponent extends BaseComponent implements OnInit {
+@AutoUnsub()
+export class LoginComponent extends BaseComponent implements OnInit, OnDestroy {
     public validateForm!: FormGroup;
     public formSubmitError!: string;
     public isLoading: boolean = false;
@@ -27,6 +29,9 @@ export class LoginComponent extends BaseComponent implements OnInit {
         //private accountService: AccountService
     ) {
         super(applicationService, loggerService);
+    }
+    ngOnDestroy(): void {
+        console.log('Login Destroy');
     }
 
     ngOnInit(): void {

@@ -10,6 +10,7 @@ import { ApplicationUserService } from 'src/app/services/application-user.servic
     styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent extends BaseComponent implements OnInit {
+    public value: string = 'John';
 
     constructor(
         protected applicationService: ApplicationService,

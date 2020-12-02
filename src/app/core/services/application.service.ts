@@ -7,6 +7,8 @@ import { SpinnerService } from 'src/app/core/spinner/spinner.service';
 import { ReturnStatement } from '@angular/compiler';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { NzConfigService } from 'ng-zorro-antd/core/config';
+import { NzMessageService } from 'ng-zorro-antd/message';
+import { ToastType } from '../enums/toast-type.enum';
 
 @Injectable()
 export class ApplicationService {
@@ -16,7 +18,8 @@ export class ApplicationService {
         public router: Router,
         public notificationService: NzNotificationService,
         public notificationConfig: NzConfigService,
-        public spinnerService: SpinnerService
+        public spinnerService: SpinnerService,
+        public message: NzMessageService
     ) {
         this.notificationConfig.set("notification", {
             nzPlacement: this.config.notificationPlacement,
@@ -61,17 +64,60 @@ export class ApplicationService {
         this.showNotification(title, message, NotificationType.Error);
     }
 
+    private showToast(message: string, type: ToastType): void {
+        switch (type) {
+            case ToastType.Success:
+                this.message.success(message);
+                break;
+            case ToastType.Info:
+                this.message.info(message);
+                break;
+            case ToastType.Warning:
+                this.message.warning(message);
+                break;
+            case ToastType.Error:
+                this.message.error(message);
+                break;
+            case ToastType.Loading:
+                this.message.loading(message);
+                break;
+            default:
+                this.message.info(message);
+                break;
+        }
+    }
+
+    public showSuccessToast(message: string): void {
+        this.showToast(message, ToastType.Success);
+    }
+
+    public showInfoToast(message: string): void {
+        this.showToast(message, ToastType.Info);
+    }
+
+    public showWarningToast(message: string): void {
+        this.showToast(message, ToastType.Warning);
+    }
+
+    public showErrorToast(message: string): void {
+        this.showToast(message, ToastType.Error);
+    }
+
+    public showLoadingToast(message: string): void {
+        this.showToast(message, ToastType.Loading);
+    }
+
     public showLoaderOverlay(): void {
         this.spinnerService.show();
-    }
+    }
 
-    public hideLoaderOverlay(): void {
+    public hideLoaderOverlay(): void {
         this.spinnerService.hide();
-    }
+    }
 
-    public cloneObject<T>(obj: T): T {
-        return JSON.parse(JSON.stringify(obj));
-    }
+    public cloneObject<T>(obj: T): T {
+        return JSON.parse(JSON.stringify(obj));
+    }
 
     public getApplicationVersion(): string {
         return 'v' + this.config.currentVersion;

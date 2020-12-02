@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
@@ -9,6 +10,7 @@ import { HasRoleDirective } from './directives/has-role.directive';
 import { RouterModule } from '@angular/router';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
+import { NzSelectModule } from 'ng-zorro-antd/select';
 
 @NgModule({
 	declarations: [
@@ -23,7 +25,9 @@ import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 		CommonModule,
 		RouterModule,
 		NzLayoutModule,
-		NzDropDownModule
+		NzDropDownModule,
+		NzSelectModule,
+		FormsModule
 	],
 	exports: [
 		HeaderComponent,
