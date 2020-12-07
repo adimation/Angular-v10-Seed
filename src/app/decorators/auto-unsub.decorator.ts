@@ -10,7 +10,7 @@ export function AutoUnsub() {
                     property.unsubscribe()
                 }
             }
-            orig.apply();
+            orig.apply(this);
         }
     }
 }
